@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyProject</string>
+    <string name="enter_name">Enter name ...</string>
+    <string name="show">Show</string>
+</resources>
