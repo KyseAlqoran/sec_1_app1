@@ -21,8 +21,8 @@ import java.sql.Array;
 
 public class MainActivity extends AppCompatActivity {
     private EditText edtName;
-    private Spinner spnPL;
-    private TextView txtResult;
+    private Spinner spnLan;
+    private TextView outputText;
     private Button showbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,41 +34,25 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        setupViews();
-        // This is new code for testing ...
-        // for GitHub
-
-        showbtn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               String name = edtName.getText().toString();
-               String msg = "";
-
-               if(!name.isEmpty()) {
-                   msg = "Welcome " + name;
-                   msg += ", " + spnPL.getSelectedItem().toString();
-               } else {
-                   msg = "Please enter your name";
-               }
-
-               txtResult.setText(msg);
-           }
-        });
-    }
-
-    private void setupViews() {
         edtName = findViewById(R.id.edtName);
-        spnPL = findViewById(R.id.spnPL);
-        txtResult = findViewById(R.id.txtResult);
+        spnLan = findViewById(R.id.spnLan);
+        outputText = findViewById(R.id.outputText);
         showbtn = findViewById(R.id.showbtn);
 
-        String[] arrPL = PLDataAccess.getPL();
+        showbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = edtName.getText().toString();
+                String msg = "";
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this,
-                android.R.layout.simple_spinner_item, arrPL);
-
-        spnPL.setAdapter(adapter);
+                if(!name.isEmpty()) {
+                    msg = "Welcome " + name;
+                    msg += ", " + spnLan.getSelectedItem();
+                } else {
+                    msg = "Please enter your name";
+                }
+                outputText.setText(msg);
+            }
+        });
     }
-
 }
