@@ -2,4 +2,10 @@
     <string name="app_name">MyProject</string>
     <string name="enter_name">Enter name ...</string>
     <string name="show">Show</string>
+    <string-array name="spnLan">
+        <item>Java</item>
+        <item>C++</item>
+        <item>Python</item>
+        <item>Dart</item>
+    </string-array>
 </resources>
